@@ -1,7 +1,7 @@
 
 import {ContactList} from 'components/ContactList/ContactList';
-import {ContactForm} from 'components/ContactForm/ContactForm';
-import {Filter} from 'components/Filter/Filter';
+// import {ContactForm} from 'components/ContactForm/ContactForm';
+// import {Filter} from 'components/Filter/Filter';
 
 
 export const App = () => {
@@ -16,14 +16,14 @@ export const App = () => {
   color: '#010101'
   }}
   >Phonebook</p>
-<ContactForm />
+{/* <ContactForm /> */}
   <p
   style={{
   fontSize: 30,
   color: '#010101'
   }}
   >Contacts</p>
-  <Filter/>
+  {/* <Filter/> */}
   <ContactList />
   </div>
   );

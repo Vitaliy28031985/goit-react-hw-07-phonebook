@@ -1,11 +1,13 @@
 
 import { useState } from 'react';
 import shortid from 'shortid';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import s from './ContactForm.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import action from '../../redux/actions';
-import {getContacts} from '../../redux/selectors';
+// import { useDispatch, useSelector } from 'react-redux';
+// import action from '../../redux/actions';
+// import {getContacts} from '../../redux/selectors';
+
+import {useGetContactsQuery, useAddContactMutation} from '../../redux/contactsSlice';
 
 
 
@@ -13,14 +15,16 @@ export const ContactForm = () => {
 const [name, setName] = useState('');
 const [number, setNumber] = useState('');
 
-const contacts = useSelector(getContacts);
+const [addContact] = useAddContactMutation();
+const { data } = useGetContactsQuery();
+
+
+const contacts = data;
 
 const nameInputId = () => shortid.generate();
 const numberInpitId = () => shortid.generate();
 
-const dispatch = useDispatch();
-
-
+// const dispatch = useDispatch();
 
    const handleChange = e => {
    const {name, value,} = e.currentTarget;
@@ -53,7 +57,7 @@ alert(`A contact with the name: ${name} already exists.`);
       return;
     }
 
-dispatch(action.addContact(name, number));
+addContact({ name, number });
 setName('');
 setNumber('');
 }
@@ -100,6 +104,6 @@ setNumber('');
      )
    }
 
-ContactForm.propTypes = {
-   onSubmit: PropTypes.func,
-   };
+// ContactForm.propTypes = {
+//    onSubmit: PropTypes.func,
+//    };
