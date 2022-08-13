@@ -11,9 +11,7 @@ export const ContactList = () => {
 const {data: contacts} = ususeGetContactsQuery();
 const [deleteContactc] = useDeleteContatcMutation();
 
-// console.log(contacts.name);
-   // const contacts = useSelector(getVisibleContacts);
-   // const dispatch = useDispatch();
+
  
    const onDeleteContact = id => deleteContactc(id);
 
@@ -43,3 +41,7 @@ return (
 // ),
 //  }
  
+
+// console.log(contacts.name);
+   // const contacts = useSelector(getVisibleContacts);
+   // const dispatch = useDispatch();
