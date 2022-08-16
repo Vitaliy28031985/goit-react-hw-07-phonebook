@@ -4,11 +4,11 @@ import {ContactListEL} from './ContactListEL';
 // import action from '../../redux/actions';
 // import { getVisibleContacts } from '../../redux/selectors';
 
-import {ususeGetContactsQuery, useDeleteContatcMutation} from '../../redux/contactsSlice';
+import {useGetContactsQuery, useDeleteContatcMutation} from '../../redux/contactsSlice';
 
 export const ContactList = () => {
 
-const {data: contacts} = ususeGetContactsQuery();
+const {data: contacts} = useGetContactsQuery();
 const [deleteContactc] = useDeleteContatcMutation();
 
 
@@ -17,7 +17,7 @@ const [deleteContactc] = useDeleteContatcMutation();
 
 return (
 <ul>
-   {contacts.map(contact => 
+   {contacts && contacts.map(contact => 
    <ContactListEL 
    key={contact.id} 
    id={contact.id}
