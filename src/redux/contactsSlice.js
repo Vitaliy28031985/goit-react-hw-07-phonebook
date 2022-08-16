@@ -36,11 +36,3 @@ useGetContactsQuery,
 useAddContactMutation,
 useDeleteContatcMutation,  
 } = contactsApi;
-
-// fetch('https://62f243ab18493ca21f300ef7.mockapi.io/api/v1/contacts')
-// .then(response)
-// .then(response => 
-// response.json());
-  
-
-// console.log(response);
