@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
 import {ContactListEL} from './ContactListEL';
 import { useSelector } from 'react-redux';
-
-
-
 import {useGetContactsQuery, useDeleteContatcMutation} from '../../redux/contactsSlice';
+import {getFilterList} from '../../redux/selectors';
 
 export const ContactList = () => {
-const filter = useSelector(state => state.filter);
+const filter = useSelector(getFilterList);
 const {data: contacts} = useGetContactsQuery();
 const [deleteContactc] = useDeleteContatcMutation();
 
