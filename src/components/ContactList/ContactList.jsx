@@ -1,7 +1,7 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {ContactListEL} from './ContactListEL';
 import { useSelector } from 'react-redux';
-// import action from '../../redux/actions';
+
 
 
 import {useGetContactsQuery, useDeleteContatcMutation} from '../../redux/contactsSlice';
@@ -12,15 +12,15 @@ const {data: contacts} = useGetContactsQuery();
 const [deleteContactc] = useDeleteContatcMutation();
 
 const normalizeFilter = filter.toLowerCase();
-  const filteredContacts = contacts.filter(contact =>
+  const filteredContacts =  contacts.filter(contact =>
     contact.name.toLowerCase().includes(normalizeFilter)
   );
-
+console.log(filter);
    const onDeleteContact = id => deleteContactc(id);
 
 return (
 <ul>
-   {filteredContacts && filteredContacts.map(({id, name, number}) => 
+   {contacts && filteredContacts.map(({id, name, number}) => 
    <ContactListEL 
    key={id} 
    id={id}
@@ -33,18 +33,15 @@ return (
    );
 };
 
-// ContactList.propTypes = {
-// onDeleteContact: PropTypes.func.isRequired,
-// contacts: PropTypes.arrayOf(
-// PropTypes.shape({
-// id: PropTypes.string.isRequired,
-// name: PropTypes.string.isRequired,
-// number: PropTypes.string.isRequired,
-// }),
-// ),
-//  }
+ContactList.propTypes = {
+onDeleteContact: PropTypes.func.isRequired,
+contacts: PropTypes.arrayOf(
+PropTypes.shape({
+id: PropTypes.string.isRequired,
+name: PropTypes.string.isRequired,
+number: PropTypes.string.isRequired,
+}),
+),
+ }
  
 
-// console.log(contacts.name);
-   // const contacts = useSelector(getVisibleContacts);
-   // const dispatch = useDispatch();

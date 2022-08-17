@@ -1,11 +1,8 @@
 
 import { useState } from 'react';
 // import shortid from 'shortid';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import s from './ContactForm.module.css';
-// import { useDispatch, useSelector } from 'react-redux';
-// import action from '../../redux/actions';
-// import {getContacts} from '../../redux/selectors';
 
 import {useGetContactsQuery, useAddContactMutation} from '../../redux/contactsSlice';
 
@@ -99,11 +96,10 @@ setNumber('');
           Add contact
           </button>
       </form>
-   
       </>
      )
    }
 
-// ContactForm.propTypes = {
-//    onSubmit: PropTypes.func,
-//    };
+ContactForm.propTypes = {
+   onSubmit: PropTypes.func,
+   };
