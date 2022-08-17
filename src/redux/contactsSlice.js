@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+
 export const contactsApi = createApi({
    reducerPath: 'contacts',
   baseQuery: fetchBaseQuery({
@@ -11,6 +12,9 @@ export const contactsApi = createApi({
    query: () => '/contacts',
    providesTags: ['Contact'],
        }),
+
+
+
 
    addContact: builder.mutation({
    query: newContact => ({

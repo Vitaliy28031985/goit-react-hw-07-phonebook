@@ -1,28 +1,31 @@
 // import PropTypes from 'prop-types';
 import {ContactListEL} from './ContactListEL';
-// import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import action from '../../redux/actions';
-// import { getVisibleContacts } from '../../redux/selectors';
+
 
 import {useGetContactsQuery, useDeleteContatcMutation} from '../../redux/contactsSlice';
 
 export const ContactList = () => {
-
+const filter = useSelector(state => state.filter);
 const {data: contacts} = useGetContactsQuery();
 const [deleteContactc] = useDeleteContatcMutation();
 
+const normalizeFilter = filter.toLowerCase();
+  const filteredContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(normalizeFilter)
+  );
 
- 
    const onDeleteContact = id => deleteContactc(id);
 
 return (
 <ul>
-   {contacts && contacts.map(contact => 
+   {filteredContacts && filteredContacts.map(({id, name, number}) => 
    <ContactListEL 
-   key={contact.id} 
-   id={contact.id}
-   name={contact.name} 
-   number={contact.number}
+   key={id} 
+   id={id}
+   name={name} 
+   number={number}
    onDeleteContact={onDeleteContact} 
   
   />)}
