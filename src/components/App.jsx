@@ -2,6 +2,7 @@
 import {ContactList} from 'components/ContactList/ContactList';
 import {ContactForm} from 'components/ContactForm/ContactForm';
 import {Filter} from 'components/Filter/Filter';
+import {LoaderComponent} from './Loader/Loader';
 import {useGetContactsQuery} from '../redux/contactsSlice';
 
 
@@ -27,7 +28,8 @@ export const App = () => {
   }}
   >Contacts</p>
   <Filter/>
-  {isLoading ? (<p>Loading...</p>) : (<ContactList />)}
+  {isLoading ? (<LoaderComponent/>) : (<ContactList />)}
   </div>
   );
 };
+//<p>Loading...</p>

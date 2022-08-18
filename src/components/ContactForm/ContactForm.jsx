@@ -1,6 +1,5 @@
 
 import { useState } from 'react';
-// import shortid from 'shortid';
 import PropTypes from 'prop-types';
 import s from './ContactForm.module.css';
 
@@ -13,15 +12,7 @@ const [name, setName] = useState('');
 const [number, setNumber] = useState('');
 
 const [addContact] = useAddContactMutation();
-const { data } = useGetContactsQuery();
-
-
-const contacts = data;
-
-// const nameInputId = () => shortid.generate();
-// const numberInpitId = () => shortid.generate();
-
-// const dispatch = useDispatch();
+const { data: contacts } = useGetContactsQuery();
 
    const handleChange = e => {
    const {name, value,} = e.currentTarget;
@@ -72,7 +63,6 @@ setNumber('');
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?        [a-zA-Zа-яА-Я]*)*$"
         title="Name may contain only letters, apostrophe, dash and         spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
-        // id={nameInputId}
         onChange={handleChange}
         value={name}
         />
@@ -85,8 +75,7 @@ setNumber('');
          name="number"
          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
          title="Phone number must be digits and can contain spaces,        dashes, parentheses and can start with +"
-         required
-        //  id={numberInpitId} 
+         required 
          onChange={handleChange}
          value={number}/>
       </label>

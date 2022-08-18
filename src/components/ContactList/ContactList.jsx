@@ -13,7 +13,7 @@ const normalizeFilter = filter.toLowerCase();
 const filteredContacts =  contacts.filter(contact =>
 contact.name.toLowerCase().includes(normalizeFilter));
 
-console.log(filter);
+
    const onDeleteContact = id => deleteContactc(id);
 
 return (
