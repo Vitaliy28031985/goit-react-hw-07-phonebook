@@ -4,7 +4,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 const override: CSSProperties = {
    display: "block",
    margin: "0 auto",
-   borderColor: "red",
+   borderColor: "bisque",
  };
 
 export const LoaderComponent = () => {
@@ -12,7 +12,7 @@ export const LoaderComponent = () => {
   
 
   let [loading] = useState(true);
-  let [color] = useState("#ffffff");
+  let [color] = useState("bisque");
 
   return (
     <div>
