@@ -2,9 +2,12 @@
 import {ContactList} from 'components/ContactList/ContactList';
 import {ContactForm} from 'components/ContactForm/ContactForm';
 import {Filter} from 'components/Filter/Filter';
+import {useGetContactsQuery} from '../redux/contactsSlice';
 
 
 export const App = () => {
+
+  const {isLoading} = useGetContactsQuery();
 
   return (
    <div style={{
@@ -24,7 +27,7 @@ export const App = () => {
   }}
   >Contacts</p>
   <Filter/>
-  <ContactList />
+  {isLoading ? (<p>Loading...</p>) : (<ContactList />)}
   </div>
   );
 };

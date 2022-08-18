@@ -10,14 +10,14 @@ const {data: contacts} = useGetContactsQuery();
 const [deleteContactc] = useDeleteContatcMutation();
 
 const normalizeFilter = filter.toLowerCase();
-  const filteredContacts =  contacts.filter(contact =>
-    contact.name.toLowerCase().includes(normalizeFilter)
-  );
+const filteredContacts =  contacts.filter(contact =>
+contact.name.toLowerCase().includes(normalizeFilter));
+
 console.log(filter);
    const onDeleteContact = id => deleteContactc(id);
 
 return (
-<ul>
+    <ul>
    {contacts && filteredContacts.map(({id, name, number}) => 
    <ContactListEL 
    key={id} 
